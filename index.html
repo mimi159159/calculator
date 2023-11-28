@@ -13,7 +13,7 @@
     <button onclick="ad(7)">7</button>
     <button onclick="ad(8)">8</button>
     <button onclick="ad(9)">9</button>
-    <button id="mult" onclick="opper('-')">x</button>
+    <button id="mult" onclick="opper('*')">x</button>
     <button id="divis" onclick="opper('/')" >/</button>
     <br>
     <button onclick="ad(4)">4</button>
@@ -28,17 +28,17 @@
     <br>
     <button onclick="ad(0)">0</button>
     <button onclick="acA()">ac</button>
-    <button onclick="add()">=</button>
+    <button onclick="equel()">=</button>
 
     <script>
         let clearFlag = false
         let num1 =0 
-        let number = 0
+        let number1 = 0
         let lastOper = ""
-        let plusS = document.getElementById("plus")
-        let minosS = document.getElementById("minos")
-        let divisS = document.getElementById("divis")
-        let multS = document.getElementById("mult")
+        // let plusS = document.getElementById("plus")
+        // let minosS = document.getElementById("minos")
+        // let divisS = document.getElementById("divis")
+        // let multS = document.getElementById("mult")
         function ad(digit) {
             if (clearFlag) {
                 res.value = ""
@@ -55,30 +55,43 @@
         function acA() {
             res.value = ""
         }
-       
-        function add() { 
-            if (plusS) {
-                number1 = parseInt(res.value);
-                res.value = (num1 + number1)
-                    }}
+       function equel() {
+        if (lastOper == '+') {           
+           res.value = +num1 + +res.value
+          }
+          if (lastOper == '-'){
+            res.value = +num1 - +res.value
+          }
+          if (lastOper == '/'){
+            res.value = +num1 / +res.value
+          }
+          if (lastOper == '*'){
+            res.value = +num1 * +res.value
+          }
+       }
+        // function add() { 
+        //     if (plusS) {
+        //         number1 = parseInt(res.value);
+        //         res.value = (num1 + number1)
+        //             }}
             
-        function less() {  
-            if (minosS) {
-                    number1 = parseInt(res.value);
-                    res.value = (num1 - number1)
-                }}
-        function double() {
+        // function less() {  
+        //     if (minosS) {
+        //             number1 = parseInt(res.value);
+        //             res.value = (num1 - number1)
+        //         }}
+        // function double() {
             
-            if (minosS) {
-                        number1 = parseInt(res.value);
-                        res.value = (num1 * number1)
-                    } }
-        function half() {
+        //     if (minosS) {
+        //                 number1 = parseInt(res.value);
+        //                 res.value = (num1 * number1)
+        //             } }
+        // function half() {
             
-            if (divisS) {
-                            number1 = parseInt(res.value);
-                            res.value = (num1 / number1)
-                        }}
+        //     if (divisS) {
+        //                     number1 = parseInt(res.value);
+        //                     res.value = (num1 / number1)
+        //                 }}
 
     </script>
 </body>
